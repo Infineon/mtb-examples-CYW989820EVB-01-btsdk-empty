@@ -1,5 +1,5 @@
 /*
- * Copyright 2019, Cypress Semiconductor Corporation or a subsidiary of
+ * Copyright 2020, Cypress Semiconductor Corporation or a subsidiary of
  * Cypress Semiconductor Corporation. All Rights Reserved.
  *
  * This software, including source code, documentation and related
@@ -78,12 +78,15 @@ wiced_bt_gatt_status_t app_gatt_callback( wiced_bt_gatt_evt_t event, wiced_bt_ga
 *  None
 *
 ********************************************************************************/
-void application_start(void)
+APPLICATION_START()
 {
-    #if ((defined WICED_BT_TRACE_ENABLE) || (defined HCI_TRACE_OVER_TRANSPORT))
-        /* Select Debug UART setting to see debug traces on the appropriate port */
-        wiced_set_debug_uart(  WICED_ROUTE_DEBUG_TO_PUART );
-    #endif
+#if ((defined WICED_BT_TRACE_ENABLE) || (defined HCI_TRACE_OVER_TRANSPORT))
+    /* Select Debug UART setting to see debug traces on the appropriate port */
+    wiced_set_debug_uart(  WICED_ROUTE_DEBUG_TO_PUART );
+#ifdef CYW20706A2
+    wiced_hal_puart_select_uart_pads( WICED_PUART_RXD, WICED_PUART_TXD, 0, 0);
+#endif
+#endif
 
     WICED_BT_TRACE("**** App Start **** \n\r");
 
