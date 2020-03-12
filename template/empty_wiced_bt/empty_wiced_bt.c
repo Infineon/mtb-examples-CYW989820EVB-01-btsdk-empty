@@ -138,7 +138,7 @@ wiced_result_t app_bt_management_callback( wiced_bt_management_evt_t event, wice
         // app_set_advertisement_data();
 
         /* TODO - start advertisement */
-        // wiced_bt_start_advertisements(BTM_BLE_ADVERT_UNDIRECTED_HIGH, BLE_ADDR_PUBLIC, NULL));
+        // wiced_bt_start_advertisements(BTM_BLE_ADVERT_UNDIRECTED_HIGH, BLE_ADDR_PUBLIC, NULL);
 
         /* TODO - further initialization here */
 
